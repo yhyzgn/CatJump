@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Github超链接跳转——CatJump
 // @namespace    https://github.com/yhyzgn/CatJump
-// @version      0.0.2
+// @version      0.0.3
 // @description  给Github各个超链接添加 target=_blank 属性
 // @author       yhyzgn
 // @match        *://github.com/*
@@ -85,7 +85,7 @@
 			var href;
 			for (var i = 0; i < as.length(); i++) {
 				href = C(as.get(i)).attr("href");
-				if (href && href !== "/" && href !== location.href && href.indexOf("javascript:") === -1 && href.indexOf("#") !== 0) {
+				if (href && href !== "/" && href !== window.location.href && href.indexOf("javascript") !== 0 && href.indexOf("#") !== 0) {
 					if (all.indexOf(as.get(i)) > -1 && C(as.get(i)).attr("target") === "_blank") {
 						continue;
 					}
